@@ -219,3 +219,49 @@ header h2 span {
 .social_media a figure img{
     width: 100%;
 }
+
+@media screen and (max-width: 1000px) { 
+	.service_boxes{
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}
+
+@media screen and (max-width: 800px) { 
+	.banner_info{
+		position: static;
+		transform: none;
+		background: black;
+		margin: -4px 0 0;
+		padding: 40px 15px 40px;
+	}
+
+}
+
+@media screen and (max-width: 600px) { 
+	#navigation ul{
+		background: black;
+		padding: 24px 15px;
+		text-align: center;
+		position: static;
+	}
+
+	header{
+		text-align: center;
+	}
+
+	.social_media{
+		bottom: 0;
+    	top: auto;
+		right: 0;
+		width: fit-content;
+		column-gap: 10px;
+		border-radius: 25px 0 0 0;
+		flex-direction: row;
+	}
+	
+	.social_media a figure{
+		width: 40px;
+	}
+
+}
