@@ -1,0 +1,85 @@
+// Character prototype
+function Character(name, health) {
+    this.name = name;
+    this.health = health;
+  }
+  
+  Character.prototype.printStats = function() {
+    console.log(`${this.name} - Health: ${this.health} Level: ${this.level}`);
+  };
+  
+  // Player constructor
+  function Player(name, health, level) {
+    // Inherit from Character prototype
+    Character.call(this, name, health);
+    this.level = level;
+  }
+  function Enemy(name, health) {
+    // Implement inheritance
+    Character.call(this, name, health);
+  }
+  function Eattack(atk){
+      this.atk = atk;
+  }
+  function Pdmg(dmg){
+      this.dmg = dmg;
+  }
+  
+  // Set up inheritance
+  Player.prototype = Object.create(Character.prototype);
+  Player.prototype.constructor = Player;
+  Enemy.prototype = Object.create(Character.prototype);
+  Enemy.prototype.constructor = Enemy;
+  
+  // Example usage
+  const player = new Player("Hero", 100, 1);
+  const enemy = new Enemy("Monster", 50);
+  let eatk = new Eattack(10);
+  let patk = new Pdmg(30);
+
+  player.printStats(); 
+  enemy.printStats();
+  console.log("Battle Start!");
+  for(i=0;i<=1;i++){
+  let nhealth = player.health - eatk.atk;
+  let nhealth1 = enemy.health - patk.dmg;
+  console.log("Enemy attack the Player! Dmg: "+ eatk.atk);
+  console.log("Player health remaining: "+ nhealth );
+  console.log("Player attack the Enemy! Dmg: "+ patk.dmg);
+  console.log("Enemy health remaining: "+ nhealth1);
+      if(nhealth < 0 || nhealth1 < 0){
+      i = 1;
+      if(nhealth < 0){
+      console.log("Player lose!");
+      player.health = nhealth;
+      enemy.health = nhealth1;
+      }
+      if(nhealth1 < 0){
+      console.log("Player wins!");
+      console.log("Player receives "+ nhealth + "xp!");
+      let y=1;
+      let temp = nhealth;
+      for(let z=0; z<y;z++){
+      let nlevel = nhealth - patk.dmg;
+      //nhealth = nlevel;
+      if(nlevel > 0){
+          y = y +1;
+          //temp = nhealth;
+          nhealth = nlevel;
+      }
+      else{
+          console.log("Leveled up to "+ y + "!");
+          player.level = 1 + y;
+      }}
+      player.health = temp;
+      enemy.health = nhealth1;
+      }
+  }
+  else if(nhealth != 0 || nhealth1 != 0){
+      player.health = nhealth;
+      enemy.health = nhealth1;
+  }}
+  player.printStats(); 
+  enemy.printStats();
+// Perform attacks, level up, etc.
+
