@@ -263,5 +263,12 @@ header h2 span {
 	.social_media a figure{
 		width: 40px;
 	}
+    .read-more-container {
+        display: block;
+        margin-top: 10px;
+      }
+      .read-more-button {
+        color: blue;
+      }
 
 }
