@@ -12,11 +12,12 @@ q::after {
 }
 
 body {
-	max-width: 1920px;
+	max-width: auto;
 	margin: 0 auto;
 	width: 100%;
 	box-sizing: border-box;
 }
+
 
 .c_orange {
 	color: orange;
@@ -263,12 +264,78 @@ header h2 span {
 	.social_media a figure{
 		width: 40px;
 	}
-    .read-more-container {
-        display: block;
-        margin-top: 10px;
-      }
-      .read-more-button {
-        color: blue;
-      }
+}
 
+.carousel {
+    position: relative;
+    width: auto;
+    max-width: 100%;
+    height: 500px;  /* Set a fixed height for the carousel */
+    margin: 0 auto;  /* Center the carousel and add some margin */
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.carousel-inner {
+    display: flex;  /* Ensure items are displayed in a row */
+    transition: transform 0.5s ease;
+    width: 300%;  /* Adjust width to fit all items in one row */
+    height: 100%;  /* Ensure inner container takes up full height of the carousel */
+}
+
+.carousel-item {
+    flex: 1 0 100%;  /* Each item takes up 100% of the container */
+    box-sizing: border-box;
+    position: relative;  /* Make the item a positioning context */
+    height: 100%;  /* Ensure each item takes up full height of the carousel */
+}
+
+.carousel-item.active {
+    display: block;
+    opacity: 1;
+    transition: opacity 3s ease; /* Fade transition */
+}
+
+.carousel-item img {
+    width: 35%;
+    height: auto;
+    position: absolute;
+    object-fit: contain;
+    top: 0;
+    left: 0;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    padding: 10px;
+    background-color: rgba(1, 0, 12, 0.5);
+    color: #fff;
+    text-align: center;
+    font-size: 1em;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    user-select: none;
+    cursor: pointer;
+    
+}
+
+.carousel-control-prev {
+    left: 10px;
+}
+
+.carousel-control-next {
+    right: 10px;
 }
