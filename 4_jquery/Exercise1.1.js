@@ -91,23 +91,21 @@ $(document).ready(function() {
     function displayRepositories() {
         const repoList = $('#repo-list');
         const repoPopular = $('#repo-popular');
-        //reposToDisplay.sort((a, b) => b.watchers - a.watchers);
         const start = (currentPage - 1) * itemsPerPage;
         const end = start + itemsPerPage;
         const reposToDisplay = repositories.slice(start, end);
-        //reposToDisplay.sort((a, b) => b.watchers - a.watchers);
         repoList.empty();
         repoPopular.empty();
 
         reposToDisplay.forEach(repo => {
             const repoElementleft = `
             <div class="w3-card-4 w3-margin w3-white">
-                <div class="repo">
+                <div class="repo" style="background-color: black; color: white;">
                 <img src="${repo.owner.avatar_url}" alt="Logo" style="width:5%">
                 <div class="w3-container">
-                    <h2><b>${repo.name}</b></h2>
+                    <h2 style="color: blue;"><b>${repo.name}</b></h2>
                     <h5>Date: <span class="w3-opacity">May 17, 2024</span></h5>
-                    <p>${repo.description || 'No description available'}</p>
+                    <p style="color: aqua;">${repo.description || 'No description available'}</p>
                     <div class="w3-row">
                         <div class="w3-col m8 s12">
                             <p><button class="w3-button w3-padding-large w3-white w3-border" onclick="window.open('${repo.html_url}', '_blank')">View on GitHub</button></p>
@@ -171,7 +169,10 @@ $(document).ready(function() {
         
     });
     fetchRepositories();
+    
 });
+
+
 /*
 $(document).ready(function() {
     var $carouselInner = $('.carousel-inner');
